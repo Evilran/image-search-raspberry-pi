@@ -44,7 +44,7 @@ Here‘s screenshots of running on the Raspberry Pi 3B+ with Coral USB Accelerat
 
 - [Raspberry Pi 3 Model B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) 
 
-- [Coral USB Accelerator](https://coral.withgoogle.com/products/acceleratorl) (Optional)
+- [Coral USB Accelerator](https://coral.withgoogle.com/products/accelerator) (Optional)
 
 ***Important Things***：This program does not have to use the Coral USB Accelerator, but I used it for accelerating the inference process in Tensorflow lite.
 
