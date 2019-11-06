@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <title>Image Search</title>
+  <link rel="icon" href="static/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <!-- Nav tabs -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><strong>Image Search</strong></a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li role="presentation" class="active"><a href="#url" aria-controls="url" role="tab" data-toggle="tab">Paste
+              image URL</a>
+          <li role="presentation"><a href="#image" aria-controls="image" role="tab" data-toggle="tab">Upload an
+              image</a>
+          </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://github.com/Evilran/image-search-raspberry-pi">Github</a></li>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <!-- Tab panes -->
+
+  <div class="d-flex justify-content-center w-100">
+    <div class="text-center w-50">
+      <img style="height:100px; width: 100px" src="static/logo.png" alt="" />
+      <br><br>
+      <h1><strong>Image Search by Raspberry pi</strong></h1>
+      <br>
+      <p>
+        <font size="3" face="courier">-- Evi1ran</font>
+      </p>
+    </div>
+  </div>
+  <div class="col-md-10 col-md-offset-1 tab-content" style="margin-top: 10%;">
+    {% if alert %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+      <strong>Error occurred!</strong> {{alert}}
+    </div>
+    {% endif %}
+    <div class="tab-pane active" id="url" role="tabpanel">
+      <form action="/url" method="post" enctype="multipart/form-data">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="input-group">
+            <input type="text" name="url" class="form-control" placeholder="Paste image URL here...">
+            <span class="input-group-btn">
+              <input type="submit" class="btn btn-primary" value="Search"></span>
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="image">
+      <div class="col-md-6 col-md-offset-3">
+        <form class="form-inline" action="/search" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <input type="file" name="image">
+          </div>
+          <div class="form-group"><input type="submit" class="btn btn-primary" value="Search"></div>
+      </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-10 col-md-offset-1 tab-content" style="margin-top: 5%;">
+    {% if result %}
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+      <strong>Search successfully!</strong> The image seems like 
+      <ul>
+        {% for result in result %}
+        <li>{{result}} </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <br>
+    <img class="img-responsive center-block" src="{{output}}" alt="" />
+    {% endif %}
+  </div>
+</body>
+
+</html>
