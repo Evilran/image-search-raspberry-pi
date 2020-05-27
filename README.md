@@ -1,6 +1,6 @@
 # image-search-raspberry-pi
 
-[![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/)[![Flask](https://img.shields.io/badge/flask-v1.1.1-blue)](https://pypi.org/project/Flask/)[![License](https://img.shields.io/github/license/Evilran/image-search-raspberry-pi)](https://github.com/Evilran/image-search-raspberry-pi/blob/master/LICENSE)
+[![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/) [![Flask](https://img.shields.io/badge/flask-v1.1.1-blue)](https://pypi.org/project/Flask/) [![License](https://img.shields.io/github/license/Evilran/image-search-raspberry-pi)](https://github.com/Evilran/image-search-raspberry-pi/blob/master/LICENSE)
 
 This is an online image search platform running on the Raspberry Pi via Object detection through Tensorflow lite.
 
